@@ -159,7 +159,7 @@ else
 	set t_Co=256
 	"更新vimrc时另当前缓冲区全部重加载vimrc
 	autocmd! BufWritePost .vimrc source ~/.vimrc
-	set rtp+=~/.vim/bundle/vundle/
+	set rtp+=~/.vim/bundle/Vundle.vim
 	set keywordprg=:help
 	let s:vimfile = '~/.vim/'
 	call vundle#begin()
@@ -196,14 +196,14 @@ Bundle 'nanotech/jellybeans.vim',
 Bundle 'kien/ctrlp.vim',
 Bundle 'ivalkeen/vim-ctrlp-tjump',
 Bundle 'tacahiroy/ctrlp-funky',
-Bundle 'bufonly'
+Bundle 'BufOnly.vim'
 Bundle 'CmdlineComplete'
 Bundle 'AutoComplPop',
 "Bundle 'Valloric/YouCompleteMe',
 "Bundle 'phpcomplete.vim'
 "Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'scrooloose/syntastic'
+Bundle 'Syntastic'
 Bundle 'Valloric/MatchTagAlways'
 call vundle#end()
 autocmd filetype * let &l:dict=s:vimfile.'bundle/vim-dict/dict/'.&ft.'.dict'
