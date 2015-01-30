@@ -153,9 +153,9 @@ cmap w!! %!sudo tee > /dev/null %
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'Emmet.vim'
-
 Bundle 'gmarik/Vundle.vim'
+
+Bundle 'Emmet.vim'
 
 Bundle 'kien/ctrlp.vim'
 map <leader>p :CtrlP<CR>
@@ -223,7 +223,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 if !exists('g:neocomplcache_force_omni_patterns')
     let g:neocomplcache_force_omni_patterns = {}
 endif
@@ -246,10 +245,9 @@ let g:NERDTreeShowHidden=1
 Bundle 'taglist.vim'
 let Tlist_Exit_OnlyWindow=1
 map <F4> :TlistToggle<CR>
-map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-
 
 Bundle 'cscope.vim'
+map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 Bundle 'scrooloose/syntastic'
 " npm install -g jshint for js syntax check
@@ -295,7 +293,9 @@ let g:UltiSnipsExpandTrigger="<TAB>"
 
 Bundle "comments.vim"
 
-Bundle "lmule/vim-var_dump.git"
+Bundle 'Valloric/MatchTagAlways'
+
+Bundle "lmule/vim-var_dump"
 
 call vundle#end()
 if filereadable(expand("~/.vimrc.local"))
