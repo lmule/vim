@@ -89,6 +89,6 @@
     - 打印当前光标所在的变量，目前只适用于php、js
     - 常用快捷键
         - Ctrl-d 打印当前变量
-#5. Contributor
+##5. Contributor
     - 岳哥
     - [斯人](https://github.com/leecade/)
