@@ -11,6 +11,7 @@
 ##3. Installation
     一行shell搞定安装
 > `bash -c "$( curl https://raw.githubusercontent.com/lmule/vim/master/install.sh )"`
+
 ##4. Feature
 ###4.1 KeyMap
 - 界面上有多个窗口时，上、下、左、右四个方向键盘会在横向、纵向放大、缩小
