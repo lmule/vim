@@ -5,6 +5,7 @@
 ##2. PreRequisite
     - git
     - vim版本：7.3+ 可通过 **vim version** 查看
+    - npm
 ##3. Installation
     一行shell搞定安装
 > `bash -c "$( curl https://raw.githubusercontent.com/lmule/vim/master/install.sh )"`
