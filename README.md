@@ -4,6 +4,7 @@
     大家使用vim的时候为了方便会加入各种各样的插件，但每次都需要从[github](https://github.com)、[vim-scripts](http://vim-scripts.org/vim/scripts.html)上找，于是乎为了大家方便找了一些常用的vim插件及其配置供大家使用。使用vundles管理插件，一键式安装。
 ##2. PreRequisite
     - git
+    - vim版本：7.3+ 可通过 **vim version** 查看
 ##3. Installation
     一行shell搞定安装
 > `bash -c "$( curl https://raw.githubusercontent.com/lmule/vim/master/install.sh )"`
