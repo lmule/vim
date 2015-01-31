@@ -95,6 +95,8 @@
 ##5. Contributor
     - 岳哥
     - [斯人][1]
-    - [斯人](https://github.com/leecade/)
+
+
+[斯人](https://github.com/leecade/)
 
 [1]:https://github.com/leecade/
