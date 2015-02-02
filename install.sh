@@ -3,9 +3,10 @@
 CURRENT_TIME=`date '+%Y-%m-%d-%H-%M-%S'`
 # backup files: .vimrc && .vim
 if [ -e ~/.vimrc ]; then
-    echo "backup your .vimrc"
-    echo "this is backup by dingrui on $CURRENT_TIME">>~/.vimrc
-    mv ~/.vimrc{,.$CURRENT_TIME}
+#    echo "backup your .vimrc"
+#    echo -e "this is backup by dingrui on $CURRENT_TIME\n`cat ~/.vimrc`" >~/.vimrc
+#    mv ~/.vimrc{,.$CURRENT_TIME}
+    rm ~/.vimrc
 fi
 if [ -d ~/.vim ]; then
     echo "backup your .vim"
