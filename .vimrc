@@ -2,7 +2,7 @@
 set nocompatible
 colorscheme default
 
-"set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 
 set list
 set listchars=tab:.\
