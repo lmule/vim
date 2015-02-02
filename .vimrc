@@ -2,6 +2,8 @@
 set nocompatible
 colorscheme default
 
+"set rtp+=~/.vim/bundle/Vundle.vim
+
 set list
 set listchars=tab:.\
 set listchars+=trail:▸
@@ -150,7 +152,7 @@ command! -nargs=1 -complete=file Vb execute("vertical split ".<f-args>)
 command! -nargs=1 -complete=file Vd execute("vertical diffsplit ".<f-args>)
 
 cmap w!! %!sudo tee > /dev/null %
-set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
 Bundle 'gmarik/Vundle.vim'
