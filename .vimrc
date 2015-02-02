@@ -268,7 +268,7 @@ if has("cscope")
     nmap <leader><leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
     nmap <leader><leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
     "if filereadable("cscope.out")
-        cs add "cscope.out"
+        "cs add "cscope.out"
         "这里可以写绝对路径
     "endif
 endif
