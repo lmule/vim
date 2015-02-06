@@ -19,8 +19,12 @@ command -v git >/dev/null 2>&1 || { echo >&2 "Required git but it's not installe
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/lmule/vim.git ~/.vim/vimrc
+
+# promote the autoload priority of vundle
 mkdir -p ~/.vim/autoload
 ln -s ~/.vim/bundle/Vundle.vim/autoload/vundle.vim ~/.vim/autoload/vundle.vim
+mkdir -p ~/.vim/autoload/vundle
+ln -s ~/.vim/bundle/Vundle.vim/autoload/vundle/config.vim ~/.vim/autoload/vundle/config.vim
 
 # establing soft link of .vimrc
 ln -s ~/.vim/vimrc/.vimrc ~/.vimrc

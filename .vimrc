@@ -2,12 +2,10 @@
 set nocompatible
 colorscheme default
 
-set rtp+=~/.vim/bundle/Vundle.vim
-
-set list
-set listchars=tab:.\
-set listchars+=trail:▸
-set listchars+=nbsp:_
+"set list
+"set listchars=tab:.\
+"set listchars+=trail:▸
+"set listchars+=nbsp:_
 "set listchars+=eol:¬
 
 set textwidth=120
@@ -150,9 +148,9 @@ noremap <C-L> <C-W>l
 " 垂直切分某一个buffer,eg:Vb {1/2/3}
 command! -nargs=1 -complete=file Vb execute("vertical split ".<f-args>)
 command! -nargs=1 -complete=file Vd execute("vertical diffsplit ".<f-args>)
-
 cmap w!! %!sudo tee > /dev/null %
 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Bundle 'gmarik/Vundle.vim'
