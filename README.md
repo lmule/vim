@@ -94,5 +94,5 @@
         - Ctrl-d 打印当前变量
 
 ##5. Contributor
-- 岳哥
+- [岳哥](https://github.com/muziqiushan/)
 - [斯人](https://github.com/leecade/)
