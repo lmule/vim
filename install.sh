@@ -3,10 +3,10 @@
 CURRENT_TIME=`date '+%Y-%m-%d-%H-%M-%S'`
 # backup files: .vimrc && .vim
 if [ -e ~/.vimrc ]; then
-#    echo "backup your .vimrc"
-#    echo -e "this is backup by dingrui on $CURRENT_TIME\n`cat ~/.vimrc`" >~/.vimrc
-#    mv ~/.vimrc{,.$CURRENT_TIME}
-    rm ~/.vimrc
+    echo "backup your .vimrc"
+    echo -e "this is backup by dingrui on $CURRENT_TIME\n`cat ~/.vimrc`" >~/.vimrc
+    mv ~/.vimrc{,.$CURRENT_TIME}
+    #rm ~/.vimrc
 fi
 if [ -d ~/.vim ]; then
     echo "backup your .vim"
@@ -15,10 +15,8 @@ if [ -d ~/.vim ]; then
 fi
 
 # git clone vundle
-command -v git >/dev/null 2>&1 || { echo >&2 "Required git but it's not installed.  Aborting."; exit 1; }  
-
-#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#git clone https://github.com/lmule/vim.git ~/.vim/vimrc
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/lmule/vim.git ~/.vim/vimrc
 
 # promote the autoload priority of vundle
 mkdir -p ~/.vim/autoload
