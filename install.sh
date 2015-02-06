@@ -4,6 +4,7 @@ CURRENT_TIME=`date '+%Y-%m-%d-%H-%M-%S'`
 # backup files: .vimrc && .vim
 if [ -e ~/.vimrc ]; then
     echo "backup your .vimrc"
+    :a
     echo -e "this is backup by dingrui on $CURRENT_TIME\n`cat ~/.vimrc`" >~/.vimrc
     mv ~/.vimrc{,.$CURRENT_TIME}
     #rm ~/.vimrc
@@ -27,7 +28,7 @@ ln -s ~/.vim/bundle/Vundle.vim/autoload/vundle/config.vim ~/.vim/autoload/vundle
 # establing soft link of .vimrc
 ln -s ~/.vim/vimrc/.vimrc ~/.vimrc
 # installing vim plugins
-vim <CR> +BundleInstall +qa
+vim +BundleInstall +qa
 
 # establing soft link of colorscheme
 mkdir -p ~/.vim/colors
