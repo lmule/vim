@@ -27,7 +27,7 @@ ln -s ~/.vim/bundle/Vundle.vim/autoload/vundle/config.vim ~/.vim/autoload/vundle
 # establing soft link of .vimrc
 ln -s ~/.vim/vimrc/.vimrc ~/.vimrc
 # installing vim plugins
-vim +BundleInstall +qa
+vim <CR> +BundleInstall +qa
 
 # establing soft link of colorscheme
 mkdir -p ~/.vim/colors
