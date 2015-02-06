@@ -17,8 +17,8 @@ fi
 # git clone vundle
 command -v git >/dev/null 2>&1 || { echo >&2 "Required git but it's not installed.  Aborting."; exit 1; }  
 
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/lmule/vim.git ~/.vim/vimrc
+#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#git clone https://github.com/lmule/vim.git ~/.vim/vimrc
 
 # promote the autoload priority of vundle
 mkdir -p ~/.vim/autoload
@@ -30,3 +30,7 @@ ln -s ~/.vim/bundle/Vundle.vim/autoload/vundle/config.vim ~/.vim/autoload/vundle
 ln -s ~/.vim/vimrc/.vimrc ~/.vimrc
 # installing vim plugins
 vim +BundleInstall +qa
+
+# establing soft link of colorscheme
+mkdir -p ~/.vim/colors
+ln -s ~/.vim/bundle/molokai/colors/molokai.vim ~/.vim/colors/
