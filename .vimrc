@@ -318,6 +318,9 @@ let g:UltiSnipsExpandTrigger="<TAB>"
 
 Bundle "comments.vim"
 
+Bundle "tomasr/molokai"
+colorscheme molokai
+
 Bundle 'Valloric/MatchTagAlways'
 
 Bundle "lmule/vim-var_dump"
