@@ -276,7 +276,9 @@ Bundle 'scrooloose/syntastic'
 " npm install -g csslint for css syntax check
 "let g:syntastic_javascript_checkers=['eslint']
 set statusline+=%#warningmsg#
-silent! set statusline+=%{SyntasticStatuslineFlag()}
+if exists("*SyntasticStatuslineFlag")
+    set statusline+=%{SyntasticStatuslineFlag()}
+endif
 set statusline+=%*
 let g:syntastic_ignore_files=[".*\.py$"]
 let g:syntastic_always_populate_loc_list=1
