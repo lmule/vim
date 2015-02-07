@@ -75,8 +75,6 @@ if has("syntax")
     set t_Co=256
     " Set dark background
     set background=dark
-    " Set colorscheme
-    "colorscheme devbox-dark-256
 endif
 
 if has('statusline')
@@ -278,7 +276,7 @@ Bundle 'scrooloose/syntastic'
 " npm install -g csslint for css syntax check
 "let g:syntastic_javascript_checkers=['eslint']
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+silent! set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_ignore_files=[".*\.py$"]
 let g:syntastic_always_populate_loc_list=1
@@ -319,7 +317,7 @@ let g:UltiSnipsExpandTrigger="<TAB>"
 Bundle "comments.vim"
 
 Bundle "tomasr/molokai"
-colorscheme molokai
+silent! colorscheme molokai
 
 Bundle 'Valloric/MatchTagAlways'
 
