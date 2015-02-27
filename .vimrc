@@ -271,10 +271,12 @@ if has("cscope")
     "endif
 endif
 
+Bundle "lykling/fecs.vim"
+
 Bundle 'scrooloose/syntastic'
 " npm install -g jshint for js syntax check
 " npm install -g csslint for css syntax check
-"let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_checkers=['fecs']
 set statusline+=%#warningmsg#
 if exists("*SyntasticStatuslineFlag")
     set statusline+=%{SyntasticStatuslineFlag()}
