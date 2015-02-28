@@ -245,31 +245,6 @@ let Tlist_Exit_OnlyWindow=1
 map <F4> :TlistToggle<CR>
 
 Bundle 'brookhong/cscope.vim'
-map <F5> :!find . -iname '*.c' -o 
-            \ -iname '*.cpp' -o 
-            \ -iname '*.h' -o 
-            \ -iname '*.php' -o 
-            \ -iname '*.js' -o 
-            \ > cscope.files<CR>
-            \ :!cscope -Rbk cscope.files -f cscope.out<CR> 
-            \ :cs reset<CR>
-
-set cscopetag
-if has("cscope")
-    set csprg=/usr/local/bin/cscope
-    nmap <leader><leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <leader><leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-    nmap <leader><leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <leader><leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <leader><leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <leader><leader>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
-    nmap <leader><leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <leader><leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    "if filereadable("cscope.out")
-        "cs add "cscope.out"
-        "这里可以写绝对路径
-    "endif
-endif
 
 Bundle "lykling/fecs.vim"
 
