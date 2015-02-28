@@ -327,6 +327,8 @@ Bundle 'Valloric/MatchTagAlways'
 
 Bundle "lmule/vim-var_dump"
 
+Bundle "jiangmiao/auto-pairs"
+
 call vundle#end()
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
