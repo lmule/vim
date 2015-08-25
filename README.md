@@ -1,4 +1,3 @@
-qq
 # **常用vim插件**
 ---
 ##1. What?
@@ -88,6 +87,12 @@ qq
 -  MatchTagAlways
     - https://github.com/Valloric/MatchTagAlways
     - 总是显示配对的标签
+-  DoxygenToolkit
+    - https://github.com/vim-scripts/DoxygenToolkit.vim
+    - 可以给类、方法等做注释
+    - 常用快捷键
+        - ,za 可以注释类，包含作者、时间等
+        - ,zd 可以注释方法，包含参数、返回值等
 -  vim-var_dump
     - https://github.com/lmule/vim-var_dump
     - 打印当前光标所在的变量，目前只适用于php、js
