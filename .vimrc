@@ -300,6 +300,17 @@ silent! colorscheme molokai
 
 Bundle 'Valloric/MatchTagAlways'
 
+Bundle 'DoxygenToolkit.vim'
+let g:DoxygenToolkit_briefTag_pre="@Description "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Return   "
+let g:DoxygenToolkit_authorName="dingrui"
+let g:DoxygenToolkit_versionString=""
+let g:doxygen_enhanced_color=1
+let g:DoxygenToolkit_briefTag_funcName="yes"
+map <leader>zd <Esc>:Dox<cr>
+map <leader>za <Esc>:DoxAuthor<cr>
+
 Bundle "lmule/vim-var_dump"
 
 Bundle "jiangmiao/auto-pairs"
