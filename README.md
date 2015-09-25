@@ -106,4 +106,4 @@
 ##6. 常见问题
     1、 有的securecrt颜色方案配置可能会导致屏幕闪烁，看下颜色方案的配置“启用闪烁”是否打钩
 
-     ![image](https://github.com/lmule/vim/raw/master/screenshots/secure-screen-blink.png)
+    ![image](https://github.com/lmule/vim/raw/master/screenshots/secure-screen-blink.png)
