@@ -155,26 +155,15 @@ Bundle 'gmarik/Vundle.vim'
 
 Bundle 'Emmet.vim'
 
-Bundle 'kien/ctrlp.vim'
-map <leader>p :CtrlP<CR>
-map <leader>b :CtrlPBuffer<CR>
-map <leader>t :CtrlPTag<CR>
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_working_path_mode = 'rwa'
-let g:ctrlp_open_new_file = 'h'
-let g:ctrlp_match_window = 'order:ttb,min:1,max:10,results:20'
-let g:ctrlp_root_markers = ['Bootstrap.php','fis-conf.js']
-let g:ctrlp_max_files =0
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line',
-            \'changes', 'mixed', 'bookmarkdir','funky']
+Bundle 'dbakker/vim-projectroot'
 
-Bundle 'tacahiroy/ctrlp-funky',
-map <leader>f :CtrlPFunky<CR>
+Bundle 'Shougo/vimproc.vim'
 
-" based on conceal feature
-"Bundle 'Yggdroot/indentLine'
-"let g:indentLine_char = '|'
+Bundle 'Shougo/unite-session'
+
+Bundle 'Shougo/neomru.vim'
+
+Bundle 'Shougo/unite.vim'
 
 Bundle 'Shougo/neocomplcache.vim'
 " Disable AutoComplPop.
@@ -240,18 +229,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 
-Bundle 'taglist.vim'
-let Tlist_Exit_OnlyWindow=1
-map <F4> :TlistToggle<CR>
 
-Bundle 'brookhong/cscope.vim'
-
-Bundle "lykling/fecs.vim"
-
+Bundle "jiangmiao/auto-pairs"
 Bundle 'scrooloose/syntastic'
 " npm install -g jshint for js syntax check
 " npm install -g csslint for css syntax check
-let g:syntastic_javascript_checkers=['fecs']
+
 set statusline+=%#warningmsg#
 if exists("*SyntasticStatuslineFlag")
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -271,20 +254,6 @@ autocmd filetype tpl,html let b:match_words = '<:>,'.
             \ '{%for.*%}:{%/for.*%},'.
             \ '{%widget.*%}:{%/widget%},'.
             \ '{%block.*%}:{%/block%}'
-
-"Bundle 'nathanaelkane/vim-indent-guides'
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_guide_size=1
-"let g:indent_guides_auto_colors=0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-
-"Bundle 'terryma/vim-multiple-cursors'
-"let g:multi_cursor_use_default_mapping=0
-"let g:multi_cursor_next_key='<C-1>'
-"let g:multi_cursor_prev_key='<C-2>'
-"let g:multi_cursor_skip_key='<C-3>'
-"let g:multi_cursor_quit_key='<Esc>'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -316,6 +285,167 @@ Bundle "lmule/vim-var_dump"
 Bundle "jiangmiao/auto-pairs"
 
 call vundle#end()
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" Set up some custom ignores
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ '\.svn/',
+      \ 'git5/.*/review/',
+      \ 'google/obj/',
+      \ 'tmp/',
+      \ '.sass-cache',
+      \ 'node_modules/',
+      \ 'bower_components/',
+      \ 'dist/',
+      \ '.git5_specs/',
+      \ '.pyc',
+      \ ], '\|'))
+" Use the rank sorter for everything
+" call unite#filters#sorter_default#use(['sorter_rank'])
+
+
+" Map space to the prefix for Unite
+nnoremap [unite] <Nop>
+nmap <leader> [unite]
+
+" General fuzzy search
+" nnoremap <silent> [unite]<space> :<C-u>Unite
+"       \ -no-empty  -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+
+" Quick registers
+nnoremap <silent> [unite]r :<C-u>Unite -no-empty  -buffer-name=register register<CR>
+
+nnoremap <silent> [unite]u :<C-u>Unite -no-empty  -buffer-name=buffers file_mru buffer<CR>
+" Quick buffer and mru
+
+" Quick yank history
+nnoremap <silent> [unite]y :<C-u>Unite -no-empty  -quick-match -buffer-name=yanks history/yank<CR>
+
+imap <buffer> <c-j> <Plug>(unite_select_next_line)
+" Quick outline
+nnoremap <silent> [unite]o :<C-u>Unite -no-empty  -buffer-name=outline -vertical outline<CR>
+
+" Quick sessions (projects)
+nnoremap <silent> [unite]p :<C-u>UniteWithProjectDir -no-empty -buffer-name=project file_rec:.<CR>
+
+" Quick sources
+nnoremap <silent> [unite]a :<C-u>Unite -no-empty  -buffer-name=sources source<CR>
+
+" Quick snippet
+nnoremap <silent> [unite]s :<C-u>Unite -no-empty  -buffer-name=snippets ultisnips<CR>
+
+" Quickly switch lcd
+nnoremap <silent> [unite]d
+      \ :<C-u>Unite -no-empty  -buffer-name=change-cwd -default-action=cd directory_mru directory_rec/async<CR>
+
+" Quick file search
+nnoremap <silent> [unite]f :Unite -no-empty  -buffer-name=file_list file_rec/async:<c-r>=ProjectRootGuess()<CR><CR>
+
+" Quick grep from cwd
+nnoremap <silent> [unite]g :<C-u>Unite -no-empty -buffer-name=grep grep:<c-r>=ProjectRootGuess()<CR><CR>
+nnoremap <silent> [unite]e :Unite -buffer-name=grep grep:<c-r>=ProjectRootGuess()<cr>::<C-r><C-w><CR>
+
+" Quick help
+nnoremap <silent> [unite]h :<C-u>Unite -no-empty  -buffer-name=help help<CR>
+
+" Quick line using the word under cursor
+" nnoremap <silent> [unite]l :<C-u>UniteWithCursorWord -no-empty  -buffer-name=search_file line<CR>
+
+" Quick line
+nnoremap <silent> [unite]l :<C-u>Unite -no-empty  -buffer-name=search_file line<CR>
+
+" Quick MRU search
+nnoremap <silent> [unite]m :<C-u>Unite -no-empty  -buffer-name=mru file_mru<CR>
+
+" Quick find
+nnoremap <silent> [unite]n :<C-u>Unite -no-empty  -buffer-name=find find:.<CR>
+
+" Quick commands
+nnoremap <silent> [unite]c :<C-u>Unite -no-empty  -buffer-name=commands command<CR>
+
+" Quick bookmarks
+nnoremap <silent> [unite]b :<C-u>Unite -no-empty  -buffer-name=bookmarks bookmark<CR>
+
+" Fuzzy search from current buffer
+" nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir
+" \ -no-empty  -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+
+" Quick commands
+nnoremap <silent> [unite]; :<C-u>Unite -no-empty  -buffer-name=history -default-action=edit history/command command<CR>
+augroup MyAutoCmd
+  autocmd!
+augroup END
+" Custom Unite settings
+autocmd MyAutoCmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+  " nmap <buffer> <ESC> <Plug>(unite_insert_enter)
+  " imap <buffer> <ESC> <Plug>(unite_exit)
+  imap <buffer> <c-j> <Plug>(unite_select_next_line)
+  imap <buffer> <c-k> <Plug>(unite_select_previous_line)
+  " imap <buffer> <ESC> <Plug>(unite_insert_leave)
+  nmap <buffer> <c-j> <Plug>(unite_loop_cursor_down)
+  nmap <buffer> <c-k> <Plug>(unite_loop_cursor_up)
+  nmap <buffer> <tab> <Plug>(unite_loop_cursor_down)
+  nmap <buffer> <s-tab> <Plug>(unite_loop_cursor_up)
+  imap <buffer> <c-a> <Plug>(unite_choose_action)
+  imap <buffer> <Tab> <Plug>(unite_insert_leave)
+  " imap <buffer> jj <Plug>(unite_insert_leave)
+  imap <buffer> <C-w> <Plug>(unite_delete_backward_word)
+  imap <buffer> <C-u> <Plug>(unite_delete_backward_path)
+  imap <buffer> '     <Plug>(unite_quick_match_default_action)
+  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+  nmap <buffer> <C-r> <Plug>(unite_redraw)
+  imap <buffer> <C-r> <Plug>(unite_redraw)
+  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+
+  " let unite = unite#get_current_unite()
+  " if unite.buffer_name =~# '^search'
+  "   nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+  " else
+  "   nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+  " endif
+  "
+  " nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+
+  " Using Ctrl-\ to trigger outline, so close it using the same keystroke
+  " if unite.buffer_name =~# '^outline'
+  "   imap <buffer> <C-\> <Plug>(unite_exit)
+  " endif
+
+  " Using Ctrl-/ to trigger line, close it using same keystroke
+  " if unite.buffer_name =~# '^search_file'
+  "   imap <buffer> <C-_> <Plug>(unite_exit)
+  " endif
+endfunction
+
+" Start in insert mode
+let g:unite_enable_start_insert = 1
+
+let g:unite_data_directory = "~/.unite"
+
+" Enable short source name in window
+" let g:unite_enable_short_source_names = 1
+
+" Enable history yank source
+let g:unite_source_history_yank_enable = 1
+
+" Open in bottom right
+let g:unite_split_rule = "botright"
+
+" Shorten the default update date of 500ms
+let g:unite_update_time = 200
+
+let g:unite_source_file_mru_limit = 100
+let g:unite_cursor_line_highlight = 'TabLineSel'
+" let g:unite_abbr_highlight = 'TabLine'
+
+let g:unite_source_file_mru_filename_format = ':~:.'
+let g:unite_source_file_mru_time_format = ''
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif

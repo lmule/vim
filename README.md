@@ -27,19 +27,6 @@
     - 前身是Zen Coding，通过简写html、js、css标签就可以生成代码。
     - 常用快捷键（注意有逗号）
         - Ctrl-y, 生成代码
-- ctrlp.vim
-    - https://github.com/kien/ctrlp.vim
-    - 查找利器，可以在文件、buffer、tag、项目中查找
-    - 常用快捷键（注意有逗号）
-        - ,p 根据文件名查找 
-        - ,b 只在当前打开的buffer中查找
-        - ,t 在tag中查找
-- ctrlp-funky
-    - https://github.com/tacahiroy/ctrlp-funky
-    - 显示当前文档的函数列表
-    - 常用快捷键（注意有逗号）
-        - ,f 显示函数列表
-        - ,t 在tag中查找
 - neocomplcache.vim
     - https://github.com/Shougo/neocomplcache.vim
     - 自动补全
@@ -57,18 +44,6 @@
     - 打开目录树
     - 常用快捷键
         - F2 打开目录树
-- cscope.vim
-    - https://github.com/vim-scripts/cscope.vim
-    - 生成tag
-    - 常用快捷键
-        - F5 生成tag
-        - Ctrl-] 跳转到定义
-        - Ctrl-t 返回到上次跳转的位置
-- taglist.vim
-    - https://github.com/vim-scripts/taglist.vim
-    - 显示tag树
-    - 常用快捷键
-        - F4 显示tag树
 - syntastic
     - https://github.com/scrooloose/syntastic
     - 语法检查
@@ -98,6 +73,14 @@
     - 打印当前光标所在的变量，目前只适用于php、js
     - 常用快捷键
         - Ctrl-d 打印当前变量
+- unite
+    - https://github.com/Shougo/unite.vim
+    - 可以在一个项目中快速浏览文件
+    - 常用快捷键
+        - ,e 在当前项目中查找光标所在单词
+        - ,g 在当前项目中grep
+        - ,f 在当前项目中模糊查找文件
+        - ,u 从当前打开的文件或者最近打开的文件列表中查找文件名
 
 ##5. Contributor
 - [岳哥](https://github.com/muziqiushan/)
