@@ -161,6 +161,8 @@ Bundle 'Shougo/vimproc.vim'
 
 Bundle 'Shougo/unite-session'
 
+Bundle 'Shougo/neoyank.vim'
+
 Bundle 'Shougo/neomru.vim'
 
 Bundle 'Shougo/unite.vim'
@@ -285,7 +287,9 @@ Bundle "lmule/vim-var_dump"
 Bundle "jiangmiao/auto-pairs"
 
 call vundle#end()
+
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#source('file,grep,line','matchers', 'matcher_fuzzy')
 " Set up some custom ignores
 call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([

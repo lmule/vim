@@ -81,6 +81,7 @@
         - ,g 在当前项目中grep
         - ,f 在当前项目中模糊查找文件
         - ,u 从当前打开的文件或者最近打开的文件列表中查找文件名
+        - ,l 从当前打开的文件中可以模糊grep
 
 ##5. Contributor
 - [岳哥](https://github.com/muziqiushan/)
