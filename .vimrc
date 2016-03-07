@@ -168,6 +168,24 @@ Bundle 'Shougo/neomru.vim'
 Bundle 'Shougo/unite.vim'
 
 Bundle 'Shougo/neocomplcache.vim'
+
+Bundle 'kien/ctrlp.vim'
+map <leader>p :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <leader>t :CtrlPTag<CR>
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_working_path_mode = 'rwa'
+let g:ctrlp_open_new_file = 'h'
+let g:ctrlp_match_window = 'order:ttb,min:1,max:10,results:20'
+let g:ctrlp_root_markers = ['Bootstrap.php','fis-conf.js']
+let g:ctrlp_max_files =0
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line',
+            \'changes', 'mixed', 'bookmarkdir','funky']
+
+Bundle 'tacahiroy/ctrlp-funky',
+map <leader>f :CtrlPFunky<CR>
+
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
