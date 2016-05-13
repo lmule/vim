@@ -302,8 +302,6 @@ map <leader>za <Esc>:DoxAuthor<cr>
 
 Bundle "lmule/vim-var_dump"
 
-Bundle "jiangmiao/auto-pairs"
-
 call vundle#end()
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
