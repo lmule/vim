@@ -91,3 +91,7 @@
 -  有的securecrt颜色方案配置可能会导致屏幕闪烁，看下颜色方案的配置“启用闪烁”是否打钩
 
     ![image](https://github.com/lmule/vim/raw/master/screenshots/secure-screen-blink.png)
+
+-  `MatchTagAlways unavailable: requires python.`
+
+    如果出现这个，是因为vim安装的时候没有python扩展，可以通过`vim --version | grep "python"`验证，如果python前面的是'-'，那么需要编译的时候需要带python扩展
