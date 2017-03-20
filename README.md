@@ -1,27 +1,27 @@
 # **常用vim插件**
 ---
-##1. What?
+## 1. What?
 大家使用vim的时候为了方便会加入各种各样的插件，但每次都需要从[github](https://github.com)、[vim-scripts](http://vim-scripts.org/vim/scripts.html)上找，于是乎为了大家方便找了一些常用的vim插件及其配置供大家使用。使用vundles管理插件，一键式安装。
-##2. PreRequisite
+## 2. PreRequisite
     - git
     - vim版本：7.3+ 可通过 **vim version** 查看
     - npm
         - jshint
         - csslint
     - cscope
-##3. Installation
+## 3. Installation
     一行shell搞定安装
 > `bash -c "$( curl https://raw.githubusercontent.com/lmule/vim/master/install.sh )"`
 
-##4. Feature
-###4.1 KeyMap
+## 4. Feature
+### 4.1 KeyMap
 - 界面上有多个窗口时，上、下、左、右四个方向键盘会在横向、纵向放大、缩小
 - 界面上有多个窗口时，Ctrl-j、Ctrl-k、Ctrl-h、Ctrl-l会在多窗口间切换（顺序参照vim默认的j、k、h、l）
 - 在命令模式下，输入:Vb file 会在竖直方向打开另外一个文件
 - 在命令模式下，输入:Vd file 会在竖直方向打开另外一个文件进行diff
-###4.2 本地自定义快捷键
+### 4.2 本地自定义快捷键
 - 如果不习惯作者的快捷键，可以在HOME目录下新建.vimrc.local自定义快捷键
-###4.3 Bundles
+### 4.3 Bundles
 - Emmet.vim
     - https://github.com/vim-scripts/Emmet.vim
     - 前身是Zen Coding，通过简写html、js、css标签就可以生成代码。
@@ -83,11 +83,11 @@
         - ,u 从当前打开的文件或者最近打开的文件列表中查找文件名
         - ,l 从当前打开的文件中可以模糊grep
 
-##5. Contributor
+## 5. Contributor
 - [岳哥](https://github.com/muziqiushan/)
 - [斯人](https://github.com/leecade/)
 
-##6. 常见问题
+## 6. 常见问题
 -  有的securecrt颜色方案配置可能会导致屏幕闪烁，看下颜色方案的配置“启用闪烁”是否打钩
 
     ![image](https://github.com/lmule/vim/raw/master/screenshots/secure-screen-blink.png)
