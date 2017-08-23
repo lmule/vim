@@ -469,3 +469,39 @@ let g:unite_source_file_mru_time_format = ''
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+"设置= + - * 前后自动空格
+"或者,后面自动添加空格
+let g:equ=1
+if exists("g:equ")
+  :inoremap = <c-r>=EqualSign('=')<CR>
+  :inoremap + <c-r>=EqualSign('+')<CR>
+  :inoremap - <c-r>=EqualSign('-')<CR>
+  :inoremap * <c-r>=EqualSign('*')<CR>
+  :inoremap / <c-r>=EqualSign('/')<CR>
+  :inoremap > <c-r>=EqualSign('>')<CR>
+  :inoremap < <c-r>=EqualSign('<')<CR>
+  :inoremap , ,<space>
+endif
+
+function! EqualSign(char)
+  if a:char  =~ '='  && getline('.') =~ ".*("
+    return a:char
+  endif 
+  let ex1 = getline('.')[col('.') - 3]
+  let ex2 = getline('.')[col('.') - 2]
+
+  if ex1 =~ "[-=+><>\/\*]"
+    if ex2 !~ "\s"
+      return "\<ESC>i".a:char."\<SPACE>"
+    else
+      return "\<ESC>xa".a:char."\<SPACE>"
+    endif 
+  else
+    if ex2 !~ "\s"
+      return "\<SPACE>".a:char."\<SPACE>\<ESC>a"
+    else
+      return a:char."\<SPACE>\<ESC>a"
+    endif 
+  endif
+endf
